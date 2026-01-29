@@ -11,7 +11,7 @@ const PuppyList = ({ puppies }) => {
       {!puppies.length && <h2>Oops! No puppies here!</h2>}
       <ul>
         {puppies.map(puppy => 
-          <li key={puppy._id}>{puppy.name}</li>
+          <PuppyCard key={puppy._id} puppy={puppy} />
         )}
       </ul>
     </main>
