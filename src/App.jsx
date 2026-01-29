@@ -22,9 +22,11 @@ function App() {
 
   useEffect(() => {
     const fetchPuppies = async() => {
-      // API call will go here
-      // Use the returned data to set puppies state
+      const puppiesData = await puppyService.index()
+      console.log(puppiesData)
+      setPuppies(puppiesData)
     }
+    fetchPuppies()
   }, [])
 
   return (
