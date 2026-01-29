@@ -36,7 +36,7 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route 
           path='/puppies' 
-          element={<PuppyList />} 
+          element={<PuppyList puppies={puppies} />} 
         />
         <Route 
           path='/puppies/new' 
