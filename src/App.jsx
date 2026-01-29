@@ -17,6 +17,15 @@ import './App.css'
 import * as puppyService from './services/puppyService'
 
 function App() {
+  const [puppies, setPuppies] = useState([])
+
+
+  useEffect(() => {
+    const fetchPuppies = async() => {
+      // API call will go here
+      // Use the returned data to set puppies state
+    }
+  }, [])
 
   return (
     <>
