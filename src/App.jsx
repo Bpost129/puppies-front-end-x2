@@ -25,14 +25,11 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route 
           path='/puppies' 
-          element={<PuppyList 
-            puppies={puppies} 
-            handleRemovePuppy={handleRemovePuppy}
-          />} 
+          element={<PuppyList />} 
         />
         <Route 
           path='/puppies/new' 
-          element={<NewPuppy handleAddPuppy={handleAddPuppy} />}
+          element={<NewPuppy />}
         />
       </Routes>
     </>
