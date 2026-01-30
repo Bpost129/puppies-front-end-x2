@@ -21,7 +21,7 @@ function App() {
   const navigate = useNavigate()
 
   const handleAddPuppy = async (formData) => {
-    //service function
+    const newPuppy = await puppyService.create(formData)
     setPuppies([newPuppy, ...puppies])
     navigate('/puppies')
   }
