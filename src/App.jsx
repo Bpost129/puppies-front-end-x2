@@ -27,7 +27,7 @@ function App() {
   }
 
   const handleRemovePuppy = async (puppyId) => {
-    const removedPuppy = //service function
+    const removedPuppy = await puppyService.delete(puppyId)
     setPuppies(puppies.filter(pup => pup._id !== removedPuppy._id))
   }
 
