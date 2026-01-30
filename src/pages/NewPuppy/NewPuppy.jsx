@@ -4,7 +4,7 @@ import { useState } from "react"
 // css
 import './NewPuppy.css'
 
-const NewPuppy = () => {
+const NewPuppy = ({ handleAddPuppy }) => {
   const [formData, setFormData] = useState({
     name: '',
     age: 0,
@@ -19,7 +19,7 @@ const NewPuppy = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    //handleAddPuppy
+    handleAddPuppy(formData)
   }
 
   return (

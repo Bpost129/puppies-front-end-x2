@@ -18,7 +18,13 @@ import * as puppyService from './services/puppyService'
 
 function App() {
   const [puppies, setPuppies] = useState([])
+  const navigate = useNavigate()
 
+  const handleAddPuppy = async (formData) => {
+    //service function
+    setPuppies([newPuppy, ...puppies])
+    navigate('/puppies')
+  }
 
   useEffect(() => {
     const fetchPuppies = async() => {
@@ -40,7 +46,7 @@ function App() {
         />
         <Route 
           path='/puppies/new' 
-          element={<NewPuppy />}
+          element={<NewPuppy handleAddPuppy={handleAddPuppy} />}
         />
       </Routes>
     </>
