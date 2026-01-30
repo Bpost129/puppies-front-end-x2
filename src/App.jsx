@@ -26,10 +26,14 @@ function App() {
     navigate('/puppies')
   }
 
+  const handleRemovePuppy = async (puppyId) => {
+    const removedPuppy = //service function
+    setPuppies(puppies.filter(pup => pup._id !== removedPuppy._id))
+  }
+
   useEffect(() => {
     const fetchPuppies = async() => {
       const puppiesData = await puppyService.index()
-      console.log(puppiesData)
       setPuppies(puppiesData)
     }
     fetchPuppies()
@@ -42,7 +46,7 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route 
           path='/puppies' 
-          element={<PuppyList puppies={puppies} />} 
+          element={<PuppyList puppies={puppies} handleRemovePuppy={handleRemovePuppy} />} 
         />
         <Route 
           path='/puppies/new' 
