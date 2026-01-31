@@ -1,10 +1,14 @@
 // npm modules
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 // css
 import './NewPuppy.css'
 
+
 const NewPuppy = ({ handleAddPuppy }) => {
+  const formElement = useRef()
+  console.log(formElement)
+  const [validForm, setValidForm] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     age: 0,
@@ -22,10 +26,14 @@ const NewPuppy = ({ handleAddPuppy }) => {
     handleAddPuppy(formData)
   }
 
+  useEffect(() => {
+    setValidForm(formElement.current.checkValidity())
+  }, [formData])
+
   return (
     <main className="new">
       <h1>NEW PUPPY</h1>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
         <label htmlFor="name-input">Name</label>
         <input 
           required
@@ -84,7 +92,7 @@ const NewPuppy = ({ handleAddPuppy }) => {
           <option value="Pointy">Pointy</option>
         </select>
 
-        <button type="submit">SUBMIT</button>
+        <button type="submit" disabled={!validForm}>SUBMIT</button>
       </form>
     </main>
   )
